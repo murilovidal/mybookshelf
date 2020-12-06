@@ -1,0 +1,27 @@
+
+<div class="container">
+  <h1>Meus Livros</h1>
+
+
+  <a class="btn btn-primary" href=<%= new_book_path %> role="button">Adicionar</a>
+</div>
+<div class="container">
+  <table class="table">
+    <tr>
+      <th>Título</th>
+      <th>Autor</th>
+      <th colspan="4"></th>
+    </tr>
+  
+      <% @books.each do |book| %>
+          <tr>
+              <td><%= book.title%></td>
+              <td><%= book.author%></td>
+              <td><a class="btn btn-warning" href=<%= edit_book_path(book) %> role="button">Editar</a></td>
+              <td><a class="btn btn-info" href=<%= book_path(book) %> role="button">Mostrar</a></td>
+              <td><a data-confirm="Tem certeza?" data-method="delete" href=<%= book_path(book) %> class="btn btn-danger" role="button">Remover</a></td>
+          </tr>
+     
+      <% end %>
+  </table>
+</div>
