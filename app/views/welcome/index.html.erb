@@ -1,2 +1,9 @@
-<h1>Hello, Rails!</h1>
-<%= link_to 'Meus livros', controller: 'books' %>
+<h1>Minha Biblioteca</h1>
+<% if logged_in? %>
+    <h4>Bem vindo, <%= current_user.email %></h4>
+    <%= link_to 'Meus livros', controller: 'books' %>
+<% else %>
+    <%= button_to "Login", '/login', method: :get%>
+    <%= link_to "Registrar", new_user_path, class:"btn btn-warning" %>
+<%end%>
+
