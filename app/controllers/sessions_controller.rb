@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:password])
        session[:user_id] = @user.id
-       redirect_to root_url
+       redirect_to '\books'
     else
        redirect_to '/login', notice: "Email ou senha inválido."
     end
