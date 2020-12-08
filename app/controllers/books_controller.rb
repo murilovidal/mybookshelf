@@ -12,6 +12,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @booksUser = BookUser.find_by(user_id: session[:user_id], book_id: @book.id)
   end
   
   def new
@@ -53,6 +54,21 @@ class BooksController < ApplicationController
     @book.destroy
 
     redirect_to books_path
+  end
+
+  def savereview
+    @book = Book.find(params[:id])
+    @user = User.find_by(id: session[:user_id])
+
+    @booksUser = BookUser.find_by(user_id: session[:user_id], book_id: @book.id)
+    @booksUser.review = params[:review]
+    puts params[:review]
+    @booksUser.save
+    redirect_to @book
+  end   
+  
+  def review
+    @book = Book.find(params[:id])
   end
 
   private 

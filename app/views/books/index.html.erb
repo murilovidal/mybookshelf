@@ -21,6 +21,7 @@
               <td><a class="btn btn-warning" href=<%= edit_book_path(book) %> role="button">Editar</a></td>
               <td><a class="btn btn-info" href=<%= book_path(book) %> role="button">Mostrar</a></td>
               <td><a data-confirm="Tem certeza?" data-method="delete" href=<%= book_path(book) %> class="btn btn-danger" role="button">Remover</a></td>
+              <td><a class="btn btn-success" href=<%= review_book_path(book) %> role="button">Comentar</a></td>
           </tr>
      
       <% end %>

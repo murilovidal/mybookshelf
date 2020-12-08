@@ -1,0 +1,25 @@
+<div class="container">
+    <p>
+    Título: <%= @book.title %><br>
+    </p>
+    <p>
+        Autor: <%= @book.author %><br>
+    </p>
+     
+    <%= form_with model: @bookuser, local: true do |form| %>
+    
+           
+        <div class="form-group">
+       
+        <p>
+            <%= form.label :review, "Escreva seu comentário" %><br>
+            <%= form.text_area :review, class:"form-control"  %>
+        </p>
+        
+        <p>
+            <%= form.submit "Salvar", class:"btn btn-success" %>
+        </p>
+        
+    <% end %>
+
+</div>
