@@ -15,7 +15,11 @@ class SessionsController < ApplicationController
        redirect_to '/login', notice: "Email ou senha inválido."
     end
   end
-
+  def destroy    
+    session[:user_id] = nil         
+    redirect_to '/books' 
+  end
+  
   def page_requires_login
   end
 

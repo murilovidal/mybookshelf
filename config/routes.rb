@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   get 'welcome', to: 'sessions#welcome'
+  delete 'logout', to: 'sessions#destroy', as: 'logout'
   # get 'authorized', to: 'sessions#page_requires_login'
   #get 'review_book', to: "books#createreview"
   get '/book/:id/review', to: 'books#review', as: 'review_book'
